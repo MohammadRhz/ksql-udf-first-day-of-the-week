@@ -33,7 +33,7 @@ Description:
 
     Name        : FIRSTDAYOFTHEWEEK
     Author      : Mohammad Reza Hassanzadeh (github.com/MohammadRhz)
-    Version     : 1.0.0
+    Version     : 1.0.1
     Overview    : Get the date of the first day of the week when the date you want is in the range of that week
     Type        : SCALAR
     Jar         : /opt/confluent-ksqldb/ext/DateTimeUtils-1.0.0.jar

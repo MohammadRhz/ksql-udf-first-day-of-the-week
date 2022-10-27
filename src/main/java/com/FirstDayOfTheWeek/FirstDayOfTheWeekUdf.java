@@ -10,7 +10,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.DateTimeZone;
 
-@UdfDescription(name = "firstDayOfTheWeek", author = "Mohammad Reza Hassanzadeh (github.com/MohammadRhz)", version = "1.0.0", description = "Get the date of the first day of the week when the date you want is in the range of that week", category = "DATE / TIME")
+@UdfDescription(name = "firstDayOfTheWeek", author = "Mohammad Reza Hassanzadeh (github.com/MohammadRhz)", version = "1.0.1", description = "Get the date of the first day of the week when the date you want is in the range of that week", category = "DATE / TIME")
 public class FirstDayOfTheWeekUdf {
   
     

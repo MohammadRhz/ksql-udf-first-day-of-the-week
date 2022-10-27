@@ -75,7 +75,7 @@ Read the description above and take a look at the examples below:
   
     -- 1666523533000 is Sunday, October 23, 2022 2:42:13 PM GMT+03:30
   
-    select FIRSTDAYOFTHEWEEK(1666523533000,0,false) from KSQL_S1MME_EPS_ATTACH_REQUEST_COUNT_HOURLY emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,0,false) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -85,7 +85,7 @@ Read the description above and take a look at the examples below:
     
     
     -- In case the week in your area starts on Saturday
-    select FIRSTDAYOFTHEWEEK(1666523533000,-2,false) from KSQL_S1MME_EPS_ATTACH_REQUEST_COUNT_HOURLY emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,-2,false) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -94,7 +94,7 @@ Read the description above and take a look at the examples below:
     
     
         
-    select FIRSTDAYOFTHEWEEK(1666523533000,0,true) from KSQL_S1MME_EPS_ATTACH_REQUEST_COUNT_HOURLY emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,0,true) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |

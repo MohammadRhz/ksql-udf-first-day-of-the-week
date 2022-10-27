@@ -1,4 +1,4 @@
-package com.DateTimeUtils;
+package com.firstDayOfTheWeekUdf;
 
 import io.confluent.ksql.function.udf.Udf;
 import io.confluent.ksql.function.udf.UdfDescription;

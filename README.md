@@ -43,6 +43,7 @@ Description:
           Returns     : BIGINT
           Description : Returns timestamp of the first day of the week
           timestamp   : Unix timestamp in milliseconds
+          timezone    : Timezone (set GMT as default)
           shift       : Useful when the first day of the week is other than Monday. Use -2 for Saturday and -1 for Sunday.
           truncateTime: Makes Hour, Minute, Second, and Millisecond 0
 
@@ -52,6 +53,7 @@ Description:
           Description : Returns a formatted string of the date(time) of the first day of the week
           inFormatPattern: Format of the input dateTimeStr. e.g.: yyyy-MM-dd HH:mm:ss.fff
           outFormatPattern: Format of the output dateTimeStr. e.g.: yyyy-MM-dd
+          timezone    : Timezone (set GMT as default)
           shift       : Useful when the first day of the week is other than Monday. Use -2 for Saturday and -1 for Sunday.
           truncateTime: Makes Hour, Minute, Second, and Millisecond 0
 
@@ -61,6 +63,7 @@ Description:
           Description : Returns a formatted string of the date(time) of the first day of the week
           dateTimeStr : A formatted date and time string. e.g.: 2022-10-27 22:19:01.000
           formatPattern: Format of the input dateTimeStr (Returned format will be the same as the input format). e.g.: yyyy-MM-dd HH:mm:ss.fff
+          timezone    : Timezone (set GMT as default)
           shift       : Useful when the first day of the week is other than Monday. Use -2 for Saturday and -1 for Sunday.
           truncateTime: Makes Hour, Minute, Second, and Millisecond 0
           
@@ -75,7 +78,7 @@ Read the description above and take a look at the examples below:
   
     -- 1666523533000 is Sunday, October 23, 2022 2:42:13 PM GMT+03:30
   
-    select FIRSTDAYOFTHEWEEK(1666523533000,0,false) from test emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,'GMT',0,false) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -85,7 +88,7 @@ Read the description above and take a look at the examples below:
     
     
     -- In case the week in your area starts on Saturday
-    select FIRSTDAYOFTHEWEEK(1666523533000,-2,false) from test emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,'GMT',-2,false) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -94,7 +97,7 @@ Read the description above and take a look at the examples below:
     
     
         
-    select FIRSTDAYOFTHEWEEK(1666523533000,0,true) from test emit changes;
+    select FIRSTDAYOFTHEWEEK(1666523533000,'GMT',0,true) from test emit changes;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -110,7 +113,7 @@ Read the description above and take a look at the examples below:
 
   ## 2. Formatted Date and Time
 
-    select FIRSTDAYOFTHEWEEK('2022-10-23 12:13:14','yyyy-MM-dd HH:mm:ss',0,false) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-23 12:13:14','yyyy-MM-dd HH:mm:ss','GMT',0,false) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -119,7 +122,7 @@ Read the description above and take a look at the examples below:
     
     
     
-    select FIRSTDAYOFTHEWEEK('2022-10-24 12:13:14','yyyy-MM-dd HH:mm:ss', 'yyyy-MM-dd HH:00:00',0,false) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-24 12:13:14','yyyy-MM-dd HH:mm:ss', 'yyyy-MM-dd HH:00:00','GMT',0,false) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -128,7 +131,7 @@ Read the description above and take a look at the examples below:
     
     
     
-    select FIRSTDAYOFTHEWEEK('2022-10-25','yyyy-MM-dd', 'yyyy-MM-dd HH:00:00',0,false) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-25','yyyy-MM-dd', 'yyyy-MM-dd HH:00:00','GMT',0,false) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -137,7 +140,7 @@ Read the description above and take a look at the examples below:
     
     
     
-    select FIRSTDAYOFTHEWEEK('2022-10-26 22','yyyy-MM-dd HH',0,false) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-26 22','yyyy-MM-dd HH','GMT',0,false) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -146,7 +149,7 @@ Read the description above and take a look at the examples below:
     
     
     
-    select FIRSTDAYOFTHEWEEK('2022-10-27 18:19:20','yyyy-MM-dd HH:mm:ss',0,true) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-27 18:19:20','yyyy-MM-dd HH:mm:ss','GMT',0,true) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
@@ -155,7 +158,7 @@ Read the description above and take a look at the examples below:
     
     
     -- In case the week in your area starts on Saturday
-    select FIRSTDAYOFTHEWEEK('2022-10-28 18:19:20','yyyy-MM-dd HH:mm:ss',-2,true) from test;
+    select FIRSTDAYOFTHEWEEK('2022-10-28 18:19:20','yyyy-MM-dd HH:mm:ss','GMT',-2,true) from test;
     
     +-----------------------------------------------------------------------------+
     |KSQL_COL_0                                                                   |
